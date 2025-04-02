@@ -4,9 +4,10 @@ import React, { useEffect, useRef } from 'react';
 interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className = '' }) => {
+const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className = '', style }) => {
   const revealRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -37,7 +38,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className = '' })
   }, []);
 
   return (
-    <div ref={revealRef} className={`reveal ${className}`}>
+    <div ref={revealRef} className={`reveal ${className}`} style={style}>
       {children}
     </div>
   );
